@@ -12,7 +12,8 @@ module.exports = {
         yq_choc: "#5A3813",
         yq_lightchoc: "#BA9D75",
         yq_beige: "#FDEFE2",
-        yq_white: "#FFFFFF",
+        yq_white1: "#FEFAF5",
+        yq_white2: "#FFFFFF",
         yq_lightbeige: "#FEF7F1",
         yq_black: "#1E1E1E"
       },

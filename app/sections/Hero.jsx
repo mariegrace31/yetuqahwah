@@ -6,7 +6,7 @@ function Hero() {
   return (
     <section
       id="acceuil"
-      className="relative w-full min-h-screen flex items-center"
+      className="relative w-full h-[108vh] flex items-center"
     >
       <Image
         src={coffeecup}
