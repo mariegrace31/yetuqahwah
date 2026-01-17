@@ -36,7 +36,7 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 flex justify-between bg-transparent py-5 px-20 items-center">
+    <nav className="fixed top-0 left-0 w-full z-50 flex justify-between bg-transparent py-5 px-14 items-center">
       <Image src={logo} alt="Logo" width={80} height={60} className="w-28" />
 
       <ul className="flex gap-11 items-center">

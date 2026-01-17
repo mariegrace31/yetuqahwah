@@ -14,6 +14,7 @@ module.exports = {
         yq_beige: "#FDEFE2",
         yq_white: "#FFFFFF",
         yq_lightbeige: "#FEF7F1",
+        yq_black: "#1E1E1E"
       },
       fontFamily: {
         sans: ["var(--font-raleway)", "sans-serif"],

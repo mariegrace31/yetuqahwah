@@ -1,6 +1,6 @@
 import { Raleway, Montserrat } from "next/font/google";
 import "./globals.css";
-import Navbar from "./sections/Navbar";
+import Navbar from "./components/Navbar";
 
 const raleway = Raleway({
   subsets: ["latin"],
