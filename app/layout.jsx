@@ -1,5 +1,6 @@
 import { Raleway, Montserrat } from "next/font/google";
 import "./globals.css";
+import Navbar from "./sections/Navbar";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${raleway.variable} ${montserrat.variable} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
