@@ -1,3 +1,4 @@
+import Apropos from "./sections/Apropos";
 import Hero from "./sections/Hero";
 import Produits from "./sections/Produits";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <div>
       <Hero />
       <Produits />
+      <Apropos />
     </div>
   );
 }

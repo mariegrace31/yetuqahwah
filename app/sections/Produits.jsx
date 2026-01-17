@@ -40,7 +40,6 @@ function Produits() {
               />
             </div>
 
-            {/* Title + Description (flex justify-between) */}
             <div className="flex justify-between items-start gap-4">
               <div className='px-5'>
                 <h2 className="text-yq_black text-[10px] uppercase">
@@ -61,7 +60,6 @@ function Produits() {
               </div>
             </div>
 
-            {/* Button */}
             <button className="mt-auto w-[30%] mx-5 mb-8 px-4 py-3 bg-yq_main border border-yq_main text-yq_white1 font-medium uppercase text-[10px] tracking-wide transition hover:bg-yq_white1 hover:text-yq_black">
               je commande
             </button>
