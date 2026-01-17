@@ -17,9 +17,13 @@ const sections = [
 
 function Navbar() {
   const [activeSection, setActiveSection] = useState('acceuil');
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setScrolled(scrollTop > 50);
+
       sections.forEach((section) => {
         const el = document.getElementById(section.id);
         if (el) {
@@ -36,7 +40,10 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 flex justify-between bg-transparent py-5 px-14 items-center">
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 flex justify-between py-5 px-14 items-center transition-colors duration-500
+        ${scrolled ? 'bg-yq_white1 shadow-md' : 'bg-transparent'}`}
+    >
       <Image src={logo} alt="Logo" width={80} height={60} className="w-28" />
 
       <ul className="flex gap-11 items-center">
@@ -71,3 +78,4 @@ function Navbar() {
 }
 
 export default Navbar;
+
