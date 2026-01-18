@@ -1,4 +1,5 @@
 import Apropos from "./sections/Apropos";
+import Contact from "./sections/Contact";
 import Hero from "./sections/Hero";
 import Produits from "./sections/Produits";
 import Service from "./sections/Service";
@@ -12,6 +13,7 @@ export default function Home() {
       <Apropos />
       <Service />
       <Temoignage />
+      <Contact />
     </div>
   );
 }
