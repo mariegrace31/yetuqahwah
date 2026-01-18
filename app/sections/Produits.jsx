@@ -60,7 +60,7 @@ function Produits() {
               </div>
             </div>
 
-            <button className="mt-auto w-[30%] mx-5 mb-8 px-4 py-3 bg-yq_main border-yq_main text-yq_white1 font-medium uppercase text-[10px] tracking-wide transition hover:bg-yq_white1 hover:text-yq_black">
+            <button className="mt-auto w-[30%] mx-5 mb-8 px-4 py-3 border bg-yq_main border-yq_main text-yq_white1 font-medium uppercase text-[10px] tracking-wide transition hover:bg-yq_white1 hover:text-yq_black">
               je commande
             </button>
           </div>
