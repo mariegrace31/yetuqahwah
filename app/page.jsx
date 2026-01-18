@@ -7,7 +7,7 @@ import Temoignage from "./sections/Temoignage";
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-yq_white1">
       <Hero />
       <Produits />
       <Apropos />
