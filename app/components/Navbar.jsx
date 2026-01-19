@@ -4,38 +4,43 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import logo from '@/app/assets/logoBlack.svg';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const sections = [
-  { id: 'acceuil', label: 'acceuil' },
-  { id: 'produits', label: 'nos produits' },
-  { id: 'apropos', label: 'à propos' },
-  { id: 'fondatrice', label: 'fondatrice' },
-  { id: 'intervention', label: 'intervention' },
-  { id: 'temoignages', label: 'témoignages' },
-  { id: 'contact', label: 'contact' },
+  { id: 'acceuil', label: 'acceuil', type: 'scroll' },
+  { id: 'produits', label: 'nos produits', type: 'scroll' },
+  { id: 'apropos', label: 'à propos', type: 'scroll' },
+  { id: 'fondatrice', label: 'fondatrice', type: 'page', path: '/fondatrice' },
+  { id: 'intervention', label: 'intervention', type: 'page', path: '/intervention' },
+  { id: 'temoignages', label: 'témoignages', type: 'scroll' },
+  { id: 'contact', label: 'contact', type: 'scroll' },
 ];
 
 function Navbar() {
+  const pathname = usePathname();
   const [activeSection, setActiveSection] = useState('acceuil');
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setScrolled(scrollTop > 50);
+      setScrolled(window.scrollY > 50);
 
       sections.forEach((section) => {
+        if (section.type !== 'scroll') return;
+
         const el = document.getElementById(section.id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 120 && rect.bottom >= 120) {
-            setActiveSection(section.id);
-          }
+        if (!el) return;
+
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom >= 120) {
+          setActiveSection(section.id);
         }
       });
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -48,7 +53,10 @@ function Navbar() {
 
       <ul className="flex gap-11 items-center">
         {sections.map((section) => {
-          const isActive = activeSection === section.id;
+          const isActive =
+            section.type === 'scroll'
+              ? activeSection === section.id && pathname === '/'
+              : pathname === section.path;
 
           return (
             <li
@@ -56,7 +64,11 @@ function Navbar() {
               className="relative uppercase text-[12px] font-sans font-medium group"
             >
               <Link
-                href={`#${section.id}`}
+                href={
+                  section.type === 'scroll'
+                    ? `/#${section.id}`
+                    : section.path
+                }
                 className={`transition-colors duration-300 ${
                   isActive ? 'text-yq_lightchoc' : 'text-yq_main'
                 }`}
@@ -78,4 +90,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
