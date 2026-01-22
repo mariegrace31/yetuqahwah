@@ -8,7 +8,7 @@ function Contact() {
     >
       <div className="w-[100%] lg:w-[85%] flex justify-center items-center relative">
 
-        <div className="w-[90%] lg:w-[40%] bg-yq_white1 p-5 md:p-7 lg:p-12 z-10 shadow-xl relative">
+        <div className="w-[90%] md:w-[50%] lg:w-[40%] bg-yq_white1 p-5 md:p-7 lg:p-12 z-10 shadow-xl relative">
   
           <div className=" mb-5 lg:mb-10 text-center">
             <h1 className="text-[10px] md:text-[13px] lg:text-[20px] font-montserrat font-medium text-yq_choc uppercase mb-3">
