@@ -73,8 +73,8 @@ function page() {
         </div>
       </div>
 
-      <div className='grid grid-cols-1 lg:grid-cols-2 gap-7 lg:gap-12 mt-12 lg:mt-32 px-5 lg:px-14 h-80 lg:h-[65vh]'>
-        <div className='flex flex-col gap-4 h-[57vh]'>
+      <div className='grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-12 mt-12 lg:mt-32 px-5 lg:px-14'>
+        <div className='flex flex-col gap-4'>
           <h2 className="text-yq_choc uppercase font-montserrat text-[12px] md:text-[13px] lg:text-[16px]">L'avenir des femmes africaines</h2>
           <p className='font-light text-[10px] md:text-[13px] lg:text-[16px] text-yq_black'>Nous ne faisons pas que participer à l'évolution de notre continent, nous en sommes les actrices principales. 
           Je suis convaincue que lorsqu'une femme est outilée et soutenue, elle devient à son tour un pilier pour d'autres femmes.
@@ -88,7 +88,7 @@ function page() {
           <p className='font-light text-[10px] md:text-[13px] lg:text-[16px] text-yq_black'>Transmettre, soutenir, élever les autres : telle est notre responsabilité.
             Je suis Linda Mugaruka, je suis une femme africaine, et je construis, chaque jour, l'avenir que je veux voir pour les femmes de notre continent.</p>
         </div>
-        <Image src={image} width={100} height={100} alt='image' className="w-full h-[57vh]" />
+        <Image src={image} width={100} height={100} alt='image' className="w-[90%] mx-auto mt-5 lg:mt-0 lg:w-full h-[30vh] lg:h-[57vh]" />
       </div>
     </div>
   )

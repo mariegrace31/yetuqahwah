@@ -18,7 +18,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className='grid grid-cols-2 gap-14  lg:gap-36 mt-12 md:mt-0 lg:mt-0'>
+        <div className='grid grid-cols-2 gap-14 lg:gap-36 mt-12 md:mt-0 lg:mt-0'>
           <div className='flex flex-col gap-2'>
             <h1 className='uppercase text-left lg:text-center font-medium text-yq_lightchoc text-[12px] md:text-[14px] lg:text-[20px]'>heures de service</h1>
             <div className='flex justify-between'>
