@@ -18,7 +18,7 @@ function Hero() {
 
       <div className="absolute inset-0"></div>
 
-      <div className="relative z-10 max-w-2xl px-4 md:px-9 lg:px-14">
+      <div className="relative z-10 max-w-2xl px-5 md:px-9 lg:px-14">
         <h1 className="uppercase text-[20px] md:text-[25px] lg:text-[38px] w-[70%] lg:w-[100%] font-montserrat leading-relaxed font-normal text-yq_choc">
           marque de café congolaise de spécialité
         </h1>
