@@ -56,7 +56,7 @@ function Navbar() {
       {/* logo */}
       <div className="flex justify-between items-center py-5 px-5 md:px-9 lg:px-14">
         <Image src={logo} alt="Logo" width={80} height={60} className="hidden md:block md:w-24 lg:block lg:w-28" />
-        <Link href="/"><Image src={moblogo} alt="Logo" width={80} height={60} className="w-[75px] md:hidden lg:hidden" /></Link>
+        <Link href="/"><Image src={moblogo} alt="Logo" width={80} height={60} className="w-[85px] md:hidden lg:hidden" /></Link>
 
         {/* Desktop navlinks */}
         <ul className="hidden lg:flex gap-11 items-center">
@@ -99,7 +99,7 @@ function Navbar() {
           className="lg:hidden text-yq_main text-2xl"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ? <FaTimes className='text-yq_main text-2xl md:text-4xl'  /> : <HiOutlineMenuAlt3 className='text-yq_main text-2xl md:text-4xl' />}
+          {menuOpen ? <FaTimes className='text-yq_main text-3xl md:text-4xl'  /> : <HiOutlineMenuAlt3 className='text-yq_main text-3xl md:text-4xl' />}
         </button>
       </div>
 
