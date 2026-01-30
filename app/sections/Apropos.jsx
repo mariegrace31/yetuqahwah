@@ -7,7 +7,7 @@ function Apropos() {
     <section id='apropos' className='bg-yq_black pb-14'>
       <div className='flex flex-col'>
         <Image src={about} alt="about" width={100} height={100} className='w-full mt-8 px-8 lg:hidden'/>
-        <h1 className='text-center uppercase text-yq_white1 text-[14px] md:text-[15px] lg:text-[16px] font-semibold font-montserrat py-6 lg:py-14'>à propos de yetu qahwah</h1>
+        <h1 className='text-center uppercase text-yq_white1 text-[14px] md:text-[15px] lg:text-[18px] font-semibold font-montserrat py-6 lg:py-14'>à propos de yetu qahwah</h1>
         <div className='grid grid-cols-1 lg:grid-cols-2'>
          <div className='flex flex-col px-6 lg:px-12'>
            <h3 className='text-[11px] md:text-[12px] lg:text-[13px] text-yq_orange uppercase font-extralight'>nous avons une histoire passionnante à vous raconter</h3>

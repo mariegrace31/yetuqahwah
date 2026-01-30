@@ -8,7 +8,7 @@ function page() {
     <div className='pt-24 lg:pt-44'>
       <div>
         <Image src={image} width={100} height={100} alt='image' className="w-full h-[35vh] px-10 lg:hidden" />
-        <h1 className="text-yq_choc uppercase text-center font-semibold font-montserrat mt-6 lg:mt-0 text-[14px] md:text-[15px] lg:text-[16px]">Profil personnel</h1>
+        <h1 className="text-yq_choc uppercase text-center font-semibold font-montserrat mt-6 lg:mt-0 text-[14px] md:text-[15px] lg:text-[18px]">Profil personnel</h1>
       <div className='block lg:grid lg:grid-cols-2 gap-0 lg:gap-12 mt-2 lg:mt-10 px-5 lg:px-14'>
         <div>
           <Image src={image} width={100} height={100} alt='image' className="hidden lg:block lg:w-full lg:h-[75vh]" />

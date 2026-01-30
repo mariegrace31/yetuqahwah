@@ -10,7 +10,7 @@ function Temoignage() {
     <section id="temoignages" className="bg-yq_white1 py-0 lg:py-20">
 
       <div className="flex flex-col gap-3 items-center">
-        <h1 className="text-yq_choc uppercase font-semibold font-montserrat text-[14px] mt-8 lg:mt-0 md:text-[15px] lg:text-[16px]">
+        <h1 className="text-yq_choc uppercase font-semibold font-montserrat text-[14px] mt-8 lg:mt-0 md:text-[15px] lg:text-[18px]">
           témoignages
         </h1>
         <p className="text-[16px] md:text-[19px] lg:text-[22px] text-yq_black text-center">
