@@ -1,11 +1,11 @@
-import { Raleway, Montserrat } from "next/font/google";
+import { Source_Sans_3 , Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-const raleway = Raleway({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
-  variable: "--font-raleway",
+  variable: "--font-source-sans",
   weight: ["300", "400", "500", "600", "700"],
 });
 
@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${raleway.variable} ${montserrat.variable} antialiased`}
+        className={`${sourceSans.variable} ${montserrat.variable} antialiased`}
       >
         <Navbar />
         {children}

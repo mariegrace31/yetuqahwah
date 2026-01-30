@@ -20,7 +20,7 @@ module.exports = {
         yq_blue: "#0053FA"
       },
       fontFamily: {
-        sans: ["var(--font-raleway)", "sans-serif"],
+        sans: ["var(--font-source-sans)", "sans-serif"],
         montserrat: ["var(--font-montserrat)", "sans-serif"],
       },
     },
