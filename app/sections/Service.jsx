@@ -10,7 +10,7 @@ function Service() {
   return (
     <section className="bg-yq_beige py-8 lg:py-16">
       <div className="flex flex-col gap-3 items-center">
-        <h1 className="text-yq_main uppercase font-semibold font-montserrat text-[12px] md:text-[14px] lg:text-[16px]">
+        <h1 className="text-yq_main uppercase font-semibold font-montserrat text-[14px] md:text-[14px] lg:text-[16px]">
           nos services
         </h1>
         <p className="text-[16px] md:text-[19px] lg:text-[22px] w-[80%] lg:w-full text-yq_black text-center">
