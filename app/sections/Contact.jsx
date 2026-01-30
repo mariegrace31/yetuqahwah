@@ -11,10 +11,10 @@ function Contact() {
         <div className="w-[90%] md:w-[50%] lg:w-[40%] bg-yq_white1 p-5 md:p-7 lg:p-12 z-10 shadow-xl relative">
   
           <div className=" mb-5 lg:mb-10 text-center">
-            <h1 className="text-[10px] md:text-[13px] lg:text-[20px] font-montserrat font-medium text-yq_choc uppercase mb-3">
+            <h1 className="text-[14px] md:text-[16px] lg:text-[20px] font-montserrat font-medium text-yq_choc uppercase mb-3">
               rester en contact
             </h1>
-            <p className="text-yq_black text-[10px] md:text-[13px] lg:text-[16px] font-light leading-relaxed max-w-md">
+            <p className="text-yq_black text-[13px] md:text-[14px] lg:text-[16px] font-light leading-relaxed max-w-md">
               Restons connectés pour partager notre passion du café,
               nos nouveautés et les meilleurs conseils pour sublimer
               chaque tasse.
@@ -39,7 +39,7 @@ function Contact() {
             />
             <button
               type="submit"
-              className="bg-yq_main font-medium text-[10px] md:text-[13px] lg:text-[16px] text-yq_white1 py-3 px-6 w-full hover:opacity-90 transition"
+              className="bg-yq_main font-medium text-[12px] md:text-[14px] lg:text-[16px] text-yq_white1 py-3 px-6 w-full hover:opacity-90 transition"
             >
               Envoyer
             </button>

@@ -10,10 +10,10 @@ function Temoignage() {
     <section id="temoignages" className="bg-yq_white1 py-0 lg:py-20">
 
       <div className="flex flex-col gap-3 items-center">
-        <h1 className="text-yq_choc uppercase font-montserrat text-[10px] md:text-[13px] lg:text-[16px]">
+        <h1 className="text-yq_choc uppercase font-semibold font-montserrat text-[12px] mt-8 lg:mt-0 md:text-[14px] lg:text-[16px]">
           témoignages
         </h1>
-        <p className="text-[12px] md:text-[15px] lg:text-[22px] text-yq_black text-center">
+        <p className="text-[16px] md:text-[19px] lg:text-[22px] text-yq_black text-center">
           Ce que nos clients disent sur nous
         </p>
       </div>
@@ -41,10 +41,10 @@ function Temoignage() {
             </div>
 
             <div className="flex flex-col gap-3 lg:gap-4 justify-center text-center px-6 lg:px-16">
-              <h1 className="text-[12px] md:text-[16px] lg:text-[22px] font-montserrat font-medium text-yq_main">
+              <h1 className="text-[14px] md:text-[16px] lg:text-[22px] font-montserrat font-medium text-yq_main">
                 LOREM IPSUM CAFÉ
               </h1>
-              <p className="font-light text-[12px] md:text-[15px] lg:text-[18px] text-yq_black leading-relaxed max-w-xl">
+              <p className="font-light text-[14px] md:text-[15px] lg:text-[18px] text-yq_black leading-relaxed max-w-xl">
                 “Lorem ipsum, Café lorem! 10/10. lorem recommender café.
                 le meilleur café du pays.”
               </p>
@@ -56,10 +56,10 @@ function Temoignage() {
               </button>
 
               <div className="flex flex-col justify-center items-center text-center">
-                <h2 className="text-[12px] md:text-[15px] lg:text-[18px] font-medium text-yq_main">
+                <h2 className="text-[13px] md:text-[15px] lg:text-[18px] font-medium text-yq_main">
                   Jane Doe
                 </h2>
-                <p className="text-yq_black text-[10px] md:text-[12px] lg:text-[13px] font-light">
+                <p className="text-yq_black text-[11px] md:text-[12px] lg:text-[13px] font-light">
                   02 / 10
                 </p>
               </div>

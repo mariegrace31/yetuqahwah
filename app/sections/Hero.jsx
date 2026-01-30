@@ -23,18 +23,18 @@ function Hero() {
           marque de café congolaise de spécialité
         </h1>
 
-        <p className="mt-4 lg:mt-6 text-yq_black font-light font-sans w-[65%] lg:w-[100%] text-[11px] md:text-[12px] lg:text-[15px] leading-relaxed">
+        <p className="mt-4 lg:mt-6 text-yq_black font-light font-sans w-[65%] lg:w-[100%] text-[13px] md:text-[12px] lg:text-[15px] leading-relaxed">
           Yetu Qahwah est un extraordinaire café, produit d'une collaboration
           entre les petits producteurs de café d'une part et les dégustateurs
           professionnels de café de spécialité d'autre part.
         </p>
 
         <div className="mt-5 lg:mt-8 flex gap-4 lg:gap-6">
-          <button className="px-4 lg:px-6 py-2 lg:py-3 bg-yq_main text-white uppercase text-[8px] md:text-[10px] lg:text-[13px] tracking-wide transition hover:opacity-90">
+          <button className="px-4 lg:px-6 py-2 lg:py-3 bg-yq_main text-white uppercase text-[10px] md:text-[11px] lg:text-[13px] tracking-wide transition hover:opacity-90">
             notre boutique
           </button>
 
-          <button className="px-4 lg:px-6 py-2 lg:py-3 border border-yq_main text-yq_main uppercase text-[8px] md:text-[10px] lg:text-[13px] tracking-wide transition hover:bg-yq_lightbeige">
+          <button className="px-4 lg:px-6 py-2 lg:py-3 border border-yq_main text-yq_main uppercase text-[10px] md:text-[11px] lg:text-[13px] tracking-wide transition hover:bg-yq_lightbeige">
             en savoir plus
           </button>
         </div>

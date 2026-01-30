@@ -8,17 +8,17 @@ function Produits() {
   return (
     <section id="produits" className="bg-yq_lightbeige py-10 lg:py-20 px-5 lg:px-20">
       <div className="flex flex-col gap-4 items-center text-center mb-7 lg:mb-16">
-        <h1 className="text-yq_choc uppercase font-montserrat text-[10px] md:text-[12px] lg:text-[16px]">
+        <h1 className="text-yq_choc uppercase font-semibold font-montserrat text-[12px] md:text-[14px] lg:text-[16px]">
           nos produits
         </h1>
 
-        <p className="font-sans text-[12px] md:text-[17px] lg:text-[22px] w-[100%] lg:w-[70%] text-yq_black">
+        <p className="font-sans text-[16px] md:text-[19px] lg:text-[22px] w-[100%] lg:w-[70%] text-yq_black">
           Nous offrons une large gamme de produits et services autour du café
           biologique, en utilisant du café provenant du Kivu / République
           Démocratique du Congo.
         </p>
 
-        <p className="text-[11px] md:text-[14px] lg:text-[18px] font-light text-yq_black/70">
+        <p className="text-[14px] md:text-[16px] lg:text-[18px] font-light text-yq_black/70">
           Nos cafés sont biologiques avec une certification Ecocert pour garantir
           l&apos;authenticité.
         </p>
@@ -28,7 +28,7 @@ function Produits() {
         {products.map((_, index) => (
           <div
             key={index}
-            className="flex bg-yq_white1 flex-col mx-auto gap-6 transition hover:shadow-lg w-[90%] lg:w-full"
+            className="flex bg-yq_white1 flex-col mx-auto gap-6 transition hover:shadow-lg w-[97%] lg:w-full"
           >
             <div className="flex justify-center">
               <Image
@@ -42,25 +42,25 @@ function Produits() {
 
             <div className="flex justify-between items-start gap-3 lg:gap-4">
               <div className='px-5'>
-                <h2 className="text-yq_black text-[8px] md:text-[9px] lg:text-[10px] uppercase">
+                <h2 className="text-yq_black text-[9px] md:text-[9px] lg:text-[10px] uppercase">
                   yetu Qahwah
                 </h2>
-                <p className="text-[15px] md:text-[16px] lg:text-[18px] font-montserrat text-yq_black font-medium mt-1">
+                <p className="text-[15px] md:text-[16px] lg:text-[18px] font-montserrat text-yq_black font-medium mt-0 lg:mt-1">
                   Yetu Qahwah
                 </p>
               </div>
 
               <div className="text-right px-5 ">
-                <h3 className=" text-yq_black uppercase text-[8px] md:text-[9px] lg:text-[10px]">
+                <h3 className=" text-yq_black uppercase text-[9px] md:text-[9px] lg:text-[10px]">
                   à partir de
                 </h3>
-                <p className="text-yq_black text-[15px] md:text-[16px] lg:text-[18px] font-medium mt-1">
+                <p className="text-yq_black text-[15px] md:text-[16px] lg:text-[18px] font-medium mt-0 lg:mt-1">
                   CDF 20,000
                 </p>
               </div>
             </div>
 
-            <button className="mt-[-6] lg:mt-auto w-[35%] lg:w-[30%] mx-5 mb-4 lg:mb-8 px-4 py-3 border bg-yq_main border-yq_main text-yq_white1 font-medium uppercase text-[8px] md:text-[9px] lg:text-[10px] tracking-wide transition hover:bg-yq_white1 hover:text-yq_black">
+            <button className="mt-[-12] lg:mt-auto w-[34%] lg:w-[30%] mx-5 mb-4 lg:mb-8 px-4 py-3 border bg-yq_main border-yq_main text-yq_white1 font-medium uppercase text-[10px] md:text-[9px] lg:text-[10px] tracking-wide transition hover:bg-yq_white1 hover:text-yq_black">
               je commande
             </button>
           </div>
