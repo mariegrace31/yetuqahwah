@@ -36,7 +36,7 @@ function Produits() {
       className="bg-yq_lightbeige py-10 lg:py-20 px-5 lg:px-20"
     >
       <div className="flex flex-col gap-4 items-center text-center mb-7 lg:mb-16">
-        <h1 className="text-yq_choc uppercase font-semibold font-montserrat text-[14px] md:text-[15px] lg:text-[18px]">
+        <h1 className="text-yq_choc uppercase font-bold font-montserrat text-[14px] md:text-[15px] lg:text-[18px]">
           nos produits
         </h1>
 
@@ -83,7 +83,7 @@ function Produits() {
                   <h3 className="text-yq_black uppercase text-[9px] md:text-[9px] lg:text-[10px]">
                     à partir de
                   </h3>
-                  <p className="text-yq_black text-[13px] md:text-[16px] lg:text-[18px] font-medium">
+                  <p className="text-yq_black text-[13px] md:text-[16px] lg:text-[18px] font-bold">
                     {product.price}
                   </p>
                 </div>

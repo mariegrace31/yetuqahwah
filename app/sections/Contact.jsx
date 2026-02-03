@@ -11,7 +11,7 @@ function Contact() {
         <div className="w-[90%] md:w-[50%] lg:w-[40%] bg-yq_white1 p-5 md:p-7 lg:p-12 z-10 shadow-xl relative">
   
           <div className=" mb-5 lg:mb-10 text-center">
-            <h1 className="text-[14px] md:text-[16px] lg:text-[20px] font-montserrat font-medium text-yq_choc uppercase mb-3">
+            <h1 className="text-[14px] md:text-[16px] lg:text-[20px] font-montserrat font-semibold text-yq_choc uppercase mb-3">
               rester en contact
             </h1>
             <p className="text-yq_black text-[13px] md:text-[14px] lg:text-[16px] font-light leading-relaxed max-w-md">
