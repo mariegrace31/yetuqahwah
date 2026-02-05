@@ -12,7 +12,7 @@ const sourceSans = Source_Sans_3({
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export default function RootLayout({ children }) {
