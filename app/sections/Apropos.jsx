@@ -12,7 +12,7 @@ function Apropos() {
           alt="about"
           width={100}
           height={100}
-          className="w-full mt-8 lg:hidden"
+          className="w-full pt-10 lg:hidden"
         />
 
         <h1 className="text-center uppercase text-yq_white1 text-[14px] md:text-[15px] lg:text-[18px] font-bold font-montserrat py-6 lg:py-14">
