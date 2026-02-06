@@ -74,7 +74,7 @@ function Produits() {
                   <h2 className="text-yq_black text-[9px] md:text-[9px] lg:text-[10px] uppercase">
                     {product.brand}
                   </h2>
-                  <p className="text-[13px] md:text-[16px] lg:text-[18px] font-montserrat text-yq_black font-medium">
+                  <p className="text-[13px] md:text-[16px] lg:text-[18px] font-montserrat text-yq_black font-bold">
                     {product.name}
                   </p>
                 </div>
