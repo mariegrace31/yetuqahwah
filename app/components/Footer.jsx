@@ -1,79 +1,35 @@
 import Image from 'next/image';
-import React from 'react';
-import logo from '@/app/assets/logowhite.svg';
-import { FaFacebook, FaTiktok } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa6";
+import { FaFacebook, FaTiktok } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa6';
 
-function Footer() {
+export default function Footer({ content }) {
   return (
-    <div className='bg-yq_choc mt-12 px-5 lg:px-44 pt-14 lg:pt-16 pb-7'>
-      <div className='flex flex-col md:flex-row lg:flex-row justify-between'>
-
-        <div className='flex flex-col gap-7 lg:gap-10'>
-          <Image src={logo} alt="Yetu Qahwah Logo" width={50} height={50} className='w-28 md:w-32 lg:w-44' />
-          <div className='flex gap-4 lg:gap-9'>
-            <FaFacebook className='text-xl md:text-2xl lg:text-4xl text-yq_white1' />
-            <FaTiktok className='text-xl md:text-2xl lg:text-4xl text-yq_white1' />
-            <FaInstagram className='text-xl md:text-2xl lg:text-4xl text-yq_white1' />
+    <footer className="bg-yq_choc px-5 pt-14 pb-7 lg:px-44 lg:pt-16">
+      <div className="flex flex-col justify-between md:flex-row">
+        <div className="flex flex-col gap-7 lg:gap-10">
+          <Image src={content.logo} alt="Yetu Qahwah" width={50} height={50} unoptimized className="w-28 md:w-32 lg:w-44" />
+          <div className="flex gap-4 lg:gap-9"><FaFacebook className="text-xl text-yq_white1 md:text-2xl lg:text-4xl" /><FaTiktok className="text-xl text-yq_white1 md:text-2xl lg:text-4xl" /><FaInstagram className="text-xl text-yq_white1 md:text-2xl lg:text-4xl" /></div>
+        </div>
+        <div className="mt-12 grid grid-cols-2 gap-8 md:mt-0 lg:gap-24">
+          <div>
+            <h2 className="font-medium uppercase text-yq_lightchoc text-[12px] md:text-[14px] lg:text-[20px]">{content.hoursTitle}</h2>
+            <dl className="mt-4 space-y-2">{content.hours.map((item) => <div key={item.day} className="flex justify-between gap-5 text-yq_white1 text-[10px] md:text-[12px] lg:text-[14px]"><dt className="font-light uppercase">{item.day}</dt><dd className="font-light">{item.hours}</dd></div>)}</dl>
+          </div>
+          <div>
+            <h2 className="font-medium uppercase text-yq_lightchoc text-[12px] md:text-[14px] lg:text-[20px]">{content.contactTitle}</h2>
+            <div className="mt-4 flex flex-col gap-5 text-yq_white1">
+              <p className="text-[12px] md:text-[14px] lg:text-[16px]">Téléphone:<br /><span className="font-light text-[10px] md:text-[12px] lg:text-[14px]">{content.phone}</span></p>
+              <p className="text-[12px] md:text-[14px] lg:text-[16px]">E-mail:<br /><a href={`mailto:${content.email}`} className="font-light text-[10px] md:text-[12px] lg:text-[14px]">{content.email}</a></p>
+              <p className="text-[12px] md:text-[14px] lg:text-[16px]">Adresse:<br /><span className="font-light text-[10px] md:text-[12px] lg:text-[14px]">{content.address}</span></p>
+            </div>
           </div>
         </div>
-
-        <div className='grid grid-cols-2 gap-14 lg:gap-36 mt-12 md:mt-0 lg:mt-0'>
-          <div className='flex flex-col gap-2'>
-            <h1 className='uppercase text-left lg:text-center font-medium text-yq_lightchoc text-[12px] md:text-[14px] lg:text-[20px]'>heures de service</h1>
-            <div className='flex justify-between'>
-              <div className='flex flex-col gap-2'>
-                <p className='uppercase text-[10px] md:text-[12px] lg:text-[14px] font-light text-yq_white1 mt-1 lg:mt-5'>lundi</p>
-                <p className='uppercase text-[10px] md:text-[12px] lg:text-[14px] font-light text-yq_white1'>mardi</p>
-                <p className='uppercase text-[10px] md:text-[12px] lg:text-[14px] font-light text-yq_white1'>mercredi</p>
-                <p className='uppercase text-[10px] md:text-[12px] lg:text-[14px] font-light text-yq_white1'>jeudi</p>
-                <p className='uppercase text-[10px] md:text-[12px] lg:text-[14px] font-light text-yq_white1'>vendredi</p>
-                <p className='uppercase text-[10px] md:text-[12px] lg:text-[14px] font-light text-yq_white1'>samedi</p>
-                <p className='uppercase text-[10px] md:text-[12px] lg:text-[14px] font-light text-yq_white1'>dimanche</p>
-              </div>
-              <div className='flex flex-col gap-2'>
-                <p className='text-[10px] md:text-[12px] lg:text-[14px] font-light text-yq_white1 mt-1 lg:mt-5'>8h - 20h</p>
-                <p className='text-[10px] md:text-[12px] lg:text-[14px] font-light text-yq_white1'>8h - 20h</p>
-                <p className='text-[10px] md:text-[12px] lg:text-[14px] font-light text-yq_white1'>8h - 20h</p>
-                <p className='text-[10px] md:text-[12px] lg:text-[14px] font-light text-yq_white1'>8h - 20h</p>
-                <p className='text-[10px] md:text-[12px] lg:text-[14px] font-light text-yq_white1'>8h - 20h</p>
-                <p className='text-[10px] md:text-[12px] lg:text-[14px] font-light text-yq_white1'>8h - 20h</p>
-                <p className='text-[10px] md:text-[12px] lg:text-[14px] font-light text-yq_white1'>8h - 18h</p>
-              </div>
-            </div>
-          </div>
-
-          <div className='flex flex-col gap-2'>
-            <h1 className='uppercase font-medium text-yq_lightchoc text-[12px] md:text-[14px] lg:text-[20px]'>contact</h1>
-            <div className='flex flex-col gap-6 mt-1 lg:mt-5'>
-              <div>
-              <p className='text-yq_white1 text-[12px] md:text-[14px] lg:text-[16px]'>Téléphone:</p>
-              <p className='text-yq_white1 text-[10px] md:text-[12px] lg:text-[14px] font-light'>+243 978 026 943</p>
-            </div>
-             <div>
-              <p className='text-yq_white1 text-[12px] md:text-[14px] lg:text-[16px]'>E-mail:</p>
-              <p className='text-yq_white1 text-[10px] md:text-[12px] lg:text-[14px] font-light'>yetuqahwah2020@gmail.com</p>
-            </div>
-             <div>
-              <p className='text-yq_white1 text-[12px] md:text-[14px] lg:text-[16px]'>Adresse:</p>
-              <p className='text-yq_white1 text-[10px] md:text-[12px] lg:text-[14px] font-light'>Lorem Ipsum, Loremp Ipsum</p>
-            </div>
-            </div>
-            
-          </div>
-
-        </div>
       </div>
-
-      <hr className='mt-16' />
-
-      <div className='flex flex-col md:flex-row gap-10 lg:gap-8 text-center lg:text-left lg:flex-row mx-auto justify-between mt-7 lg:mt-20'>
-        <p className='text-yq_white1 text-[11px] md:text-[13px] lg:text-[14px] uppercase'>© 2025 Yetu Qahwah. all rights reserved.</p>
-        <p className='text-yq_white1 text-[11px] md:text-[13px] lg:text-[14px] uppercase'>coffee lovers</p>
+      <hr className="mt-12" />
+      <div className="mt-7 flex flex-col justify-between gap-4 text-center md:flex-row md:text-left">
+        <p className="uppercase text-yq_white1 text-[11px] md:text-[13px] lg:text-[14px]">© 2025 Yetu Qahwah. all rights reserved.</p>
+        <p className="uppercase text-yq_white1 text-[11px] md:text-[13px] lg:text-[14px]">coffee lovers</p>
       </div>
-
-    </div>
-  )
+    </footer>
+  );
 }
-
-export default Footer

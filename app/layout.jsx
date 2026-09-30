@@ -1,7 +1,5 @@
 import { Source_Sans_3 , Montserrat } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 
 const sourceSans = Source_Sans_3({
   subsets: ["latin"],
@@ -17,13 +15,11 @@ const montserrat = Montserrat({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <body
         className={`${sourceSans.variable} ${montserrat.variable} antialiased`}
       >
-        <Navbar />
         {children}
-        <Footer />
       </body>
     </html>
   );

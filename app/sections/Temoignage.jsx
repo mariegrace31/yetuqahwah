@@ -1,20 +1,19 @@
 import Image from "next/image";
 import React from "react";
-import coffee from "@/app/assets/about.svg";
 import { CiStar } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import { ImArrowLeft2, ImArrowRight2 } from "react-icons/im";
 
-function Temoignage() {
+function Temoignage({ content }) {
   return (
-    <section id="temoignages" className="bg-yq_white1 py-0 lg:py-20">
+    <section id="temoignages" className="bg-yq_white1 pt-0 pb-12 lg:py-20">
 
       <div className="flex flex-col gap-3 items-center">
         <h1 className="text-yq_choc uppercase font-bold font-montserrat text-[14px] mt-8 lg:mt-0 md:text-[15px] lg:text-[18px]">
-          témoignages
+          {content.title}
         </h1>
         <p className="text-[16px] md:text-[19px] lg:text-[22px] text-yq_black text-center">
-          Ce que nos clients disent sur nous
+          {content.description}
         </p>
       </div>
 
@@ -23,8 +22,9 @@ function Temoignage() {
 
           <div className="relative w-[100%] lg:w-[35%] h-full">
             <Image
-              src={coffee}
-              alt="coffee pic"
+              src={content.image}
+              alt="Café Yetu Qahwah"
+              unoptimized
               fill
               className="object-cover"
             />
@@ -33,20 +33,17 @@ function Temoignage() {
           <div className="w-[90%]lg:w-[60%] h-full bg-yq_beige px-5 md:px-7 lg:px-12 py-2 md:py-7 lg:py-10 flex flex-col justify-around lg:justify-between text-left">
 
             <div className="flex gap-1 justify-center">
-              <FaStar className="text-[#FFAE4D] text-[17px] md:text-[15px] lg:text-[22px]" />
-              <FaStar className="text-[#FFAE4D] text-[17px] md:text-[15px] lg:text-[22px]" />
-              <FaStar className="text-[#FFAE4D] text-[17px] md:text-[15px] lg:text-[22px]" />
-              <FaStar className="text-[#FFAE4D] text-[17px] md:text-[15px] lg:text-[22px]" />
-              <CiStar className="text-[#FFAE4D] text-[20px] md:text-[18px] lg:text-[25px]" />
+              {Array.from({ length: 5 }, (_, index) => index < content.rating
+                ? <FaStar key={index} className="text-[#FFAE4D] text-[17px] md:text-[15px] lg:text-[22px]" />
+                : <CiStar key={index} className="text-[#FFAE4D] text-[20px] md:text-[18px] lg:text-[25px]" />)}
             </div>
 
             <div className="flex flex-col gap-3 lg:gap-4 justify-center text-center px-6 lg:px-16">
               <h1 className="text-[14px] md:text-[16px] lg:text-[22px] font-montserrat font-medium text-yq_main">
-                LOREM IPSUM CAFÉ
+                {content.customer}
               </h1>
               <p className="font-light text-[14px] md:text-[15px] lg:text-[18px] text-yq_black leading-relaxed max-w-xl">
-                “Lorem ipsum, Café lorem! 10/10. lorem recommender café.
-                le meilleur café du pays.”
+                {content.quote}
               </p>
             </div>
 
@@ -57,7 +54,7 @@ function Temoignage() {
 
               <div className="flex flex-col justify-center items-center text-center">
                 <h2 className="text-[13px] md:text-[15px] lg:text-[18px] font-medium text-yq_main">
-                  Jane Doe
+                  {content.name}
                 </h2>
                 <p className="text-yq_black text-[11px] md:text-[12px] lg:text-[13px] font-light">
                   02 / 10
@@ -77,4 +74,3 @@ function Temoignage() {
 }
 
 export default Temoignage;
-

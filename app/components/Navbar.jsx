@@ -2,8 +2,6 @@
 
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import logo from '@/app/assets/logoBlack.svg';
-import moblogo from '@/app/assets/moblogochoc.svg';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FaTimes } from 'react-icons/fa';
@@ -19,7 +17,7 @@ const sections = [
   { id: 'contact', label: 'contact', type: 'scroll' },
 ];
 
-function Navbar() {
+function Navbar({ content }) {
   const pathname = usePathname();
   const [activeSection, setActiveSection] = useState('acceuil');
   const [scrolled, setScrolled] = useState(false);
@@ -55,8 +53,8 @@ function Navbar() {
     >
       {/* logo */}
       <div className="flex justify-between items-center py-5 px-5 md:px-9 lg:px-14">
-        <Image src={moblogo} alt="Logo" width={80} height={60} className="hidden md:block md:w-24 lg:block lg:w-28" />
-        <Link href="/"><Image src={moblogo} alt="Logo" width={80} height={60} className="w-[100px] md:hidden lg:hidden" /></Link>
+        <Image src={content.logo} alt={content.logoAlt} width={120} height={60} unoptimized className="hidden md:block md:w-24 lg:block lg:w-28" />
+        <Link href="/"><Image src={content.logo} alt={content.logoAlt} width={120} height={60} unoptimized className="w-[100px] md:hidden lg:hidden" /></Link>
 
         <ul className="hidden lg:flex gap-11 items-center">
           {sections.map((section) => {
@@ -133,4 +131,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
