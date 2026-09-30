@@ -8,8 +8,9 @@ export default async function PortalPage() {
     return <section className="rounded-xl bg-white p-7 shadow-sm"><h1 className="font-montserrat text-xl font-bold text-yq_choc">Configurer Supabase</h1><p className="mt-3 text-sm">Copiez <code>.env.example</code> vers <code>.env.local</code>, ajoutez l’URL et la clé publique Supabase, puis appliquez la migration <code>supabase/migrations/202609300001_site_content.sql</code>.</p></section>;
   }
   const supabase = await createClient();
-  const { data: { claims } } = await supabase.auth.getClaims();
-  if (!claims) redirect('/portal/login');
+  const { data, error } = await supabase.auth.getClaims();
+  const claims = data?.claims;
+  if (error || !claims) redirect('/portal/login');
   const { data: editor } = await supabase.from('site_editors').select('user_id').eq('user_id', claims.sub).maybeSingle();
   if (!editor) return <section className="rounded-xl bg-white p-7 shadow-sm"><h1 className="font-montserrat text-xl font-bold text-yq_choc">Accès en attente</h1><p className="mt-3 text-sm">Ce compte est connecté, mais n’a pas encore été autorisé à modifier le site. Demandez à l’administrateur Supabase d’ajouter son identifiant à la table <code>site_editors</code>.</p><SignOutButton /></section>;
   return <PortalDashboard email={claims.email || ''} />;

@@ -132,7 +132,7 @@ export default function PortalDashboard({ email }) {
         <nav className="flex gap-2 overflow-x-auto md:flex-col">
           {contentSections.map((section) => <button key={section.id} onClick={() => { setActiveSection(section.id); setStatus(''); }} className={`shrink-0 rounded-lg px-3 py-2 text-left text-sm ${activeSection === section.id ? 'bg-yq_main text-white' : 'hover:bg-[#f5f1eb]'}`}>{section.label}</button>)}
         </nav>
-        <button onClick={logout} className="mt-5 w-full rounded border border-[#ded5c9] px-3 py-2 text-sm">Se déconnecter</button>
+        <button onClick={logout} className="mt-5 w-full rounded border border-[#ded5c9] px-3 py-2 text-sm transition focus:border-yq_choc focus:outline-none focus:ring-2 focus:ring-yq_choc/30 focus:shadow-[0_0_0_4px_rgba(60,36,21,0.12)]">Se déconnecter</button>
       </aside>
       <section className="min-w-0 rounded-xl bg-white p-5 shadow-sm md:p-8">
         <div className="mb-6 flex flex-wrap items-start justify-between gap-4">

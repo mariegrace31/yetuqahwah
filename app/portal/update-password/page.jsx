@@ -15,15 +15,17 @@ export default function UpdatePasswordPage() {
     else setMessage('Votre mot de passe a été changé. Vous pouvez maintenant vous connecter.');
   }
   return (
-    <section className="mx-auto max-w-md rounded-xl bg-white p-7 shadow-sm md:p-10">
-      <h1 className="font-montserrat text-xl font-bold text-yq_choc">Choisir un nouveau mot de passe</h1>
+    <div className="flex min-h-[calc(100vh-2rem)] items-center justify-center py-3">
+    <section className="w-full max-w-md rounded-xl bg-white p-5 shadow-sm sm:p-7 md:p-10">
+      <h1 className="font-montserrat text-lg font-bold text-yq_choc sm:text-xl">Choisir un nouveau mot de passe</h1>
       <form onSubmit={submit} className="mt-7 flex flex-col gap-4">
-        <label className="text-sm">Nouveau mot de passe<input required minLength={8} name="password" type="password" autoComplete="new-password" className="mt-1 w-full rounded border border-yq_lightchoc px-3 py-3" /></label>
+        <label className="block text-sm">Nouveau mot de passe<input required minLength={8} name="password" type="password" autoComplete="new-password" className="mt-1 w-full rounded border border-yq_lightchoc px-3 py-3 transition focus:border-yq_choc focus:outline-none focus:ring-2 focus:ring-yq_choc/30 focus:shadow-[0_0_0_4px_rgba(60,36,21,0.12)]" /></label>
         {message && <p role="status" className="text-sm text-green-800">{message}</p>}
         {error && <p role="alert" className="text-sm text-red-700">{error}</p>}
-        <button className="rounded bg-yq_main px-4 py-3 font-medium text-white">Enregistrer</button>
+        <button className="rounded bg-yq_main px-4 py-3 font-medium text-white transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-yq_choc focus:ring-offset-2">Enregistrer</button>
       </form>
       {message && <Link href="/portal/login" className="mt-5 inline-block text-sm text-yq_main underline">Aller à la connexion</Link>}
     </section>
+    </div>
   );
 }
