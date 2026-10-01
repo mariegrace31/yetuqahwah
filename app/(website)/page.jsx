@@ -5,11 +5,13 @@ import Produits from "@/app/sections/Produits";
 import Service from "@/app/sections/Service";
 import Temoignage from "@/app/sections/Temoignage";
 import { getSiteContent } from "@/lib/supabase/public-content";
+import InviteLinkRedirect from "@/app/auth/InviteLinkRedirect";
 
 export default async function Home() {
   const content = await getSiteContent();
   return (
     <div className="bg-yq_white1">
+      <InviteLinkRedirect />
       <Hero content={content.hero} />
       <Produits content={content.products} />
       <Apropos content={content.about} />

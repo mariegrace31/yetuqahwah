@@ -11,7 +11,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (new URLSearchParams(window.location.search).get('error') === 'invite') {
-      setNotice("Le lien d’invitation est invalide ou expiré. Demande un nouvel e-mail d’invitation.");
+      setNotice("Le lien d'invitation est invalide ou expiré. Demande un nouvel e-mail d’invitation.");
     }
   }, []);
 
