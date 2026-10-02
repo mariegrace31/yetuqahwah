@@ -29,9 +29,10 @@ function Produits({ content }) {
             key={product.id}
             className="flex bg-yq_white1 flex-col mx-auto gap-4 transition hover:shadow-lg w-full max-w-sm overflow-hidden"
           >
-            <div className="w-full">
+            <div className="h-64 w-full shrink-0">
               <Image src={product.image} alt={product.name} width={180} height={180} unoptimized
-                className="block h-56 w-full object-cover"
+                className="block h-64 w-full object-cover"
+                style={{ height: '16rem', width: '100%' }}
               />
             </div>
 

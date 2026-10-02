@@ -15,8 +15,8 @@ export default async function ProductsPage() {
       <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
         {products.map((product) => (
           <article key={product.id} className="mx-auto flex w-full max-w-sm flex-col gap-4 overflow-hidden bg-yq_white1 shadow-sm transition hover:shadow-lg">
-            <div className="w-full">
-              <Image src={product.image} alt={product.name} width={180} height={180} unoptimized className="block h-56 w-full object-cover" />
+            <div className="h-64 w-full shrink-0">
+              <Image src={product.image} alt={product.name} width={180} height={180} unoptimized className="block h-64 w-full object-cover" style={{ height: '16rem', width: '100%' }} />
             </div>
             <div className="flex items-start justify-between gap-3 px-4">
               <div><p className="text-[10px] uppercase text-yq_black">{product.brand}</p><h2 className="font-montserrat text-lg font-bold text-yq_black">{product.name}</h2></div>
