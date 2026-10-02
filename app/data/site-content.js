@@ -50,7 +50,9 @@ export const defaultSiteContent = {
   },
   testimonials: {
     title: 'témoignages', description: 'Ce que nos clients disent sur nous', image: '/images/about.svg',
-    customer: 'LOREM IPSUM CAFÉ', quote: '“Lorem ipsum, Café lorem! 10/10. lorem recommender café. le meilleur café du pays.”', name: 'Jane Doe', rating: 4,
+    items: [
+      { id: 'jane-doe', quote: '“Lorem ipsum, Café lorem! 10/10. lorem recommender café. le meilleur café du pays.”', name: 'Jane Doe', rating: 4, proofImage: '' },
+    ],
   },
   contact: {
     title: 'rester en contact',
@@ -60,7 +62,7 @@ export const defaultSiteContent = {
   footer: {
     logo: '/images/logowhite.svg',
     hoursTitle: 'heures de service', contactTitle: 'contact', phone: '+243 978 026 943',
-    email: 'yetuqahwah2020@gmail.com', address: 'Lorem Ipsum, Loremp Ipsum',
+    email: 'yetuqahwah2020@gmail.com', address: 'Bukavu, Place Mulamba',
     hours: [
       { day: 'lundi', hours: '8h - 20h' }, { day: 'mardi', hours: '8h - 20h' },
       { day: 'mercredi', hours: '8h - 20h' }, { day: 'jeudi', hours: '8h - 20h' },
@@ -105,6 +107,21 @@ export function mergeSiteContent(rows = []) {
   for (const row of rows) {
     if (row?.section && row.content && content[row.section]) {
       content[row.section] = { ...content[row.section], ...row.content };
+      if (row.section === 'testimonials' && !Array.isArray(row.content.items) && row.content.quote) {
+        content.testimonials.items = [{
+          id: 'legacy-testimonial',
+          quote: row.content.quote,
+          name: row.content.name || row.content.customer || '',
+          rating: Number(row.content.rating) || 5,
+          proofImage: '',
+        }];
+      }
+      if (row.section === 'testimonials') {
+        delete content.testimonials.customer;
+        delete content.testimonials.quote;
+        delete content.testimonials.name;
+        delete content.testimonials.rating;
+      }
     }
   }
   return content;

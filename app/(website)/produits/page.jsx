@@ -16,7 +16,7 @@ export default async function ProductsPage() {
         {products.map((product) => (
           <article key={product.id} className="mx-auto flex w-full max-w-sm flex-col gap-4 overflow-hidden bg-yq_white1 shadow-sm transition hover:shadow-lg">
             <div className="w-full">
-              <Image src={product.image} alt={product.name} width={180} height={180} unoptimized className="block h-48 w-full object-cover" />
+              <Image src={product.image} alt={product.name} width={180} height={180} unoptimized className="block h-56 w-full object-cover" />
             </div>
             <div className="flex items-start justify-between gap-3 px-4">
               <div><p className="text-[10px] uppercase text-yq_black">{product.brand}</p><h2 className="font-montserrat text-lg font-bold text-yq_black">{product.name}</h2></div>

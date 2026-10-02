@@ -34,21 +34,21 @@ function Contact({ content }) {
               type="text"
               placeholder="Nom"
               required
-              className="border border-yq_lightchoc text-yq_main bg-yq_white1 px-4 py-1 lg:py-3 outline-none placeholder:text-[10px] md:placeholder:text-[13px] lg:placeholder:text-[16px] placeholder:text-yq_lightchoc"
+              className="border border-yq_lightchoc text-yq_main bg-yq_white1 px-4 py-1 lg:py-3 outline-none transition focus:shadow-[0_0_0_4px_rgba(60,36,21,0.12)] placeholder:text-[10px] md:placeholder:text-[13px] lg:placeholder:text-[16px] placeholder:text-yq_lightchoc"
             />
             <input
               name="email"
               type="email"
               placeholder="Adresse e-mail"
               required
-              className="border bg-yq_white1 text-yq_main border-yq_lightchoc px-4 py-1 lg:py-3 outline-none placeholder:text-[10px] md:placeholder:text-[13px] lg:placeholder:text-[16px] placeholder:text-yq_lightchoc"
+              className="border bg-yq_white1 text-yq_main border-yq_lightchoc px-4 py-1 lg:py-3 outline-none transition focus:shadow-[0_0_0_4px_rgba(60,36,21,0.12)] placeholder:text-[10px] md:placeholder:text-[13px] lg:placeholder:text-[16px] placeholder:text-yq_lightchoc"
             />
             <textarea
               name="message"
               placeholder="Message"
               rows={5}
               required
-              className="border bg-yq_white1 text-yq_main border-yq_lightchoc px-4 py-3 outline-none resize-none placeholder:text-[10px] md:placeholder:text-[13px] lg:placeholder:text-[16px] placeholder:text-yq_lightchoc"
+              className="border bg-yq_white1 text-yq_main border-yq_lightchoc px-4 py-3 outline-none resize-none transition focus:shadow-[0_0_0_4px_rgba(60,36,21,0.12)] placeholder:text-[10px] md:placeholder:text-[13px] lg:placeholder:text-[16px] placeholder:text-yq_lightchoc"
             />
             <button
               type="submit"

@@ -8,7 +8,11 @@ export default function Footer({ content }) {
       <div className="flex flex-col justify-between md:flex-row">
         <div className="flex flex-col gap-7 lg:gap-10">
           <Image src={content.logo} alt="Yetu Qahwah" width={50} height={50} unoptimized className="w-28 md:w-32 lg:w-44" />
-          <div className="flex gap-4 lg:gap-9"><FaFacebook className="text-xl text-yq_white1 md:text-2xl lg:text-4xl" /><FaTiktok className="text-xl text-yq_white1 md:text-2xl lg:text-4xl" /><FaInstagram className="text-xl text-yq_white1 md:text-2xl lg:text-4xl" /></div>
+          <div className="flex gap-4 lg:gap-9">
+            <FaFacebook className="text-xl text-yq_white1 md:text-2xl lg:text-4xl" />
+            <a href="https://www.tiktok.com/@yetu.qahwah?_r=1&_t=ZS-9AC2jhBwp2D" target="_blank" rel="noopener noreferrer" aria-label="Yetu Qahwah sur TikTok"><FaTiktok className="text-xl text-yq_white1 md:text-2xl lg:text-4xl" /></a>
+            <a href="https://www.instagram.com/yetu_qahwah?stkn=MWsyeGFzbjVjMDZ1dg==" target="_blank" rel="noopener noreferrer" aria-label="Yetu Qahwah sur Instagram"><FaInstagram className="text-xl text-yq_white1 md:text-2xl lg:text-4xl" /></a>
+          </div>
         </div>
         <div className="mt-12 grid grid-cols-2 gap-8 md:mt-0 lg:gap-24">
           <div>

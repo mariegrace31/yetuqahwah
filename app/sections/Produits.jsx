@@ -31,7 +31,7 @@ function Produits({ content }) {
           >
             <div className="w-full">
               <Image src={product.image} alt={product.name} width={180} height={180} unoptimized
-                className="block h-48 w-full object-cover"
+                className="block h-56 w-full object-cover"
               />
             </div>
 
