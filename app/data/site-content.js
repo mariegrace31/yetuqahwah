@@ -29,7 +29,7 @@ export const defaultSiteContent = {
     ],
   },
   about: {
-    title: 'à propos de yetu qahwah', image: '/images/aboutimage.svg',
+    title: 'à propos de yetu qahwah', image: '/images/aboutimage.jpg',
     storyTitle: 'nous avons une histoire passionnante à vous raconter',
     story: "Acteur engagé dans l'industrie du café depuis plus de 5 ans, la marque Yetu Qahwah oeuvre activement à la sensibilisation autour de la chaine de valeur du café congolais. Nous développons des solutions concrètes et innovantes qui contribuent à améliorer à la fois la production et la consommation de café cultivé localement en République Démocratique du Congo.",
     coffeeTitle: 'à propos du café congolais',
