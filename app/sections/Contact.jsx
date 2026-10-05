@@ -13,7 +13,7 @@ function Contact({ content }) {
   }
 
   return (
-    <section id="contact" className="bg-yq_choc pt-14 pb-24 lg:pt-24 lg:pb-32 flex justify-center"
+    <section id="contact" className="mb-5 bg-yq_choc pt-14 pb-24 lg:mb-8 lg:pt-24 lg:pb-32 flex justify-center"
     >
       <div className="w-[100%] lg:w-[85%] flex justify-center items-center relative">
 

@@ -11,6 +11,12 @@ export const contentSections = [
   { id: 'branding', label: 'Identité visuelle' },
 ];
 
+const defaultInterventionParagraphs = [
+  'Lorem ipsum dolor sit amet consectetur. Vestibulum massa maecenas sed tortor eu cursus. Accumsan ac aenean aliquam a arcu elit posuere facilisis. Aliquam elit quisque ornare enim. Adipiscing augue a dolor ullamcorper faucibus. Lectus dui eget id iaculis odio eget.',
+  'Sed in sem id sed orci sit nec pellentesque faucibus. Ac sed massa non et vitae facilisi sapien in feugiat. Elementum quis sagittis sapien sapien morbi egestas. Diam quam at mauris ullamcorper neque est. Nisl tristique elementum id sed eu. Consequat varius ut aliquet nulla. Viverra leo ut aenean mauris pellentesque tellus rhoncus pellentesque sed. Nunc lorem sit eu ornare risus.',
+  'Ut tristique pretium nunc donec hendrerit nisi in mauris facilisis. Massa convallis dui eros augue elit tincidunt quam velit. Et ac mauris bibendum eu in velit urna nunc. Tempor id nulla et et ornare cursus lobortis. Dui vel diam dui vitae. Vel vel posuere lorem ultricies morbi vitae posuere eget. Tincidunt tellus eu ultrices nibh potenti ac eget rutrum fringilla. Lacus at odio habitasse sed condimentum. Sodales et eget facilisis tempor quam fames diam morbi. Mi nec elementum pellentesque arcu faucibus dictum. Ultrices placerat volutpat nisl suspendisse leo sed a. In purus facilisi faucibus pellentesque pellentesque eu risus. Mauris ultricies enim volutpat pretium donec. Et lacinia urna eget dui tellus ligula in ultricies. Nisi ipsum et convallis nunc sagittis ultrices sociis augue. Ipsum lectus accumsan lobortis ornare commodo sagittis turpis.',
+];
+
 export const defaultSiteContent = {
   hero: {
     title: 'marque de café\ncongolaise de\nspécialité',
@@ -97,7 +103,7 @@ export const defaultSiteContent = {
   intervention: {
     title: 'intervention',
     description: 'Initiative sociale et environnementale visant à accompagner les femmes vulnérables dans leur autonomisation en devenant productrices de café durable.',
-    cards: Array.from({ length: 6 }, (_, index) => ({ id: `initiative-${index + 1}`, image: '/images/grayimage.jpeg', description: 'Lorem Ipsum quando porque el fruto, el celebro di coffee' })),
+    cards: Array.from({ length: 6 }, (_, index) => ({ id: `initiative-${index + 1}`, title: `Intervention ${index + 1}`, image: '/images/grayimage.jpeg', description: 'Lorem Ipsum quando porque el fruto, el celebro di coffee', paragraphs: [...defaultInterventionParagraphs], gallery: Array.from({ length: 3 }, () => ({ image: '/images/grayimage.jpeg' })) })),
   },
   branding: { logo: '/images/moblogochoc.svg', logoAlt: 'Yetu Qahwah' },
 };
@@ -107,6 +113,20 @@ export function mergeSiteContent(rows = []) {
   for (const row of rows) {
     if (row?.section && row.content && content[row.section]) {
       content[row.section] = { ...content[row.section], ...row.content };
+      if (row.section === 'intervention') {
+        content.intervention.cards = (content.intervention.cards || []).map((card, index) => {
+          const { details, ...interventionCard } = card;
+          return {
+            ...interventionCard,
+            title: card.title || `Intervention ${index + 1}`,
+            paragraphs: Array.isArray(card.paragraphs)
+              ? card.paragraphs
+              : details ? details.split(/\n\s*\n/) : [...defaultInterventionParagraphs],
+            gallery: Array.from({ length: Math.max(3, Array.isArray(card.gallery) ? card.gallery.length : 0) }, (_, photoIndex) =>
+              card.gallery?.[photoIndex] || { image: card.image || '/images/grayimage.jpeg' }),
+          };
+        });
+      }
       if (row.section === 'testimonials' && !Array.isArray(row.content.items) && row.content.quote) {
         content.testimonials.items = [{
           id: 'legacy-testimonial',

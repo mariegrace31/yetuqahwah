@@ -6,6 +6,10 @@ body {
   @apply font-sans;
 }
 
+button {
+  text-transform: uppercase;
+}
+
 @keyframes toast-in {
   from { opacity: 0; transform: translate(-50%, 12px); }
   to { opacity: 1; transform: translate(-50%, 0); }

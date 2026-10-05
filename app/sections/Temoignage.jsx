@@ -57,11 +57,11 @@ function TestimonialForm({ onSubmitted }) {
     <div className="mt-6 border-t border-yq_main/15 pt-5">
       <h3 className="font-montserrat text-base font-semibold text-yq_main">Laisser un commentaire</h3>
       <form onSubmit={submit} className="mt-4 grid gap-3">
-        <label className="grid gap-1 text-sm text-yq_black">Ton nom
+        <label className="grid gap-1 text-sm text-yq_black">Votre nom
           <input name="name" required maxLength={80} autoComplete="name" className="w-full rounded border border-yq_lightchoc px-3 py-2 focus:outline-none focus:shadow-[0_0_0_4px_rgba(60,36,21,0.12)]" />
         </label>
         <fieldset>
-          <legend className="text-sm text-yq_black">Ta note sur 5</legend>
+          <legend className="text-sm text-yq_black">Votre note</legend>
           <div className="mt-1 flex gap-1" role="group" aria-label="Choisir une note sur 5">
             {Array.from({ length: 5 }, (_, index) => {
               const value = index + 1;
@@ -71,13 +71,13 @@ function TestimonialForm({ onSubmitted }) {
             })}
           </div>
         </fieldset>
-        <label className="grid gap-1 text-sm text-yq_black">Ton témoignage
+        <label className="grid gap-1 text-sm text-yq_black">Votre témoignage
           <textarea name="quote" required minLength={3} maxLength={1200} rows={4} className="w-full resize-y rounded border border-yq_lightchoc px-3 py-2 focus:outline-none focus:shadow-[0_0_0_4px_rgba(60,36,21,0.12)]" />
         </label>
         {message && <p role="status" className="text-sm text-green-800">{message}</p>}
         {error && <p role="alert" className="text-sm text-red-700">{error}</p>}
         <button type="submit" disabled={submitting} className="w-fit rounded bg-yq_main px-4 py-2 text-sm font-medium text-white transition hover:opacity-90 disabled:opacity-60">
-          {submitting ? 'Envoi…' : 'Envoyer mon témoignage'}
+          {submitting ? 'Envoi…' : 'Envoyer'}
         </button>
       </form>
     </div>
@@ -138,12 +138,11 @@ export default function Temoignage({ content }) {
               <ImArrowRight2 aria-hidden="true" />
             </button>
           </div>
-
         </div>
-      </div>
-      <div className="mt-6 flex flex-col items-center gap-3">
-        {submissionNotice && <p role="status" className="text-center text-sm text-green-800">{submissionNotice}</p>}
-        <button type="button" onClick={() => { setSubmissionNotice(''); setShowForm(true); }} className="rounded border border-yq_main px-4 py-2 text-sm font-medium text-yq_main transition hover:bg-yq_main hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yq_choc">Laisser un commentaire</button>
+        <div className="flex flex-col items-center gap-3 lg:col-start-2">
+          {submissionNotice && <p role="status" className="text-center text-sm text-green-800">{submissionNotice}</p>}
+          <button type="button" onClick={() => { setSubmissionNotice(''); setShowForm(true); }} className="rounded border border-yq_main px-4 py-2 text-sm font-medium text-yq_main transition hover:bg-yq_main hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yq_choc">Laisser un commentaire</button>
+        </div>
       </div>
       </>}
     </section>

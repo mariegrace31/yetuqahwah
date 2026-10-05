@@ -9,6 +9,7 @@ import { PORTAL_SESSION_MAX_AGE_MS, PORTAL_SESSION_STARTED_AT_KEY } from '@/lib/
 const fieldLabels = {
   title: 'Titre', description: 'Description', image: 'Image', note: 'Texte complémentaire',
   items: 'Éléments', id: 'Identifiant', brand: 'Marque', name: 'Nom', price: 'Prix',
+  paragraphs: 'Paragraphes', gallery: 'Images supplémentaires',
   quote: 'Témoignage', rating: 'Note sur 5 étoiles', proofImage: 'Photo facultative',
   storyTitle: 'Titre — Notre histoire', story: 'Notre histoire',
   coffeeTitle: 'Titre — Café congolais', coffee: 'À propos du café congolais',
@@ -33,8 +34,11 @@ function labelFor(key) {
 function ContentEditor({ value, path, onChange, supabase, section, notify, ensureSession, onSessionExpired }) {
   if (Array.isArray(value)) {
     const isFounderParagraphs = section === 'founder' && ['biography', 'vision'].includes(path[path.length - 1]);
-    const itemLabel = section === 'products' ? 'Produit' : section === 'testimonials' ? 'Témoignage' : isFounderParagraphs ? 'Paragraphe' : 'Élément';
-    const addLabel = section === 'products' ? 'produit' : section === 'testimonials' ? 'témoignage' : isFounderParagraphs ? 'paragraphe' : 'élément';
+    const isInterventionCards = section === 'intervention' && path[path.length - 1] === 'cards';
+    const isInterventionGallery = section === 'intervention' && path[path.length - 1] === 'gallery';
+    const isInterventionParagraphs = section === 'intervention' && path[path.length - 1] === 'paragraphs';
+    const itemLabel = section === 'products' ? 'Produit' : section === 'testimonials' ? 'Témoignage' : isInterventionCards ? 'Intervention' : isInterventionGallery ? 'Photo' : isFounderParagraphs || isInterventionParagraphs ? 'Paragraphe' : 'Élément';
+    const addLabel = section === 'products' ? 'produit' : section === 'testimonials' ? 'témoignage' : isInterventionCards ? 'intervention' : isInterventionGallery ? 'photo' : isFounderParagraphs || isInterventionParagraphs ? 'paragraphe' : 'élément';
     return (
       <div className="space-y-4">
         {value.map((item, index) => (
@@ -45,9 +49,11 @@ function ContentEditor({ value, path, onChange, supabase, section, notify, ensur
           </fieldset>
         ))}
           <button type="button" onClick={() => {
-            const item = structuredClone(value[0] || (section === 'testimonials'
+            const item = isInterventionParagraphs ? '' : structuredClone(value[0] || (section === 'testimonials'
               ? { id: 'new-testimonial', quote: '', name: '', rating: 5, proofImage: '' }
-              : { title: '', description: '', image: '' }));
+              : isInterventionCards
+                ? { id: 'new-intervention', title: '', description: '', paragraphs: [], image: '/images/grayimage.jpeg', gallery: Array.from({ length: 3 }, () => ({ image: '/images/grayimage.jpeg' })) }
+                : isInterventionGallery ? { image: '' } : { title: '', description: '', image: '' }));
             if (item && typeof item === 'object' && 'id' in item) item.id = `${item.id}-${crypto.randomUUID()}`;
             onChange(path, [...value, item]);
           }} className={`rounded border border-yq_main px-4 py-2 text-sm text-yq_main ${focusStyle}`}>+ Ajouter un {addLabel}</button>
@@ -61,6 +67,7 @@ function ContentEditor({ value, path, onChange, supabase, section, notify, ensur
     const isAboutRoot = section === 'about' && path.length === 1;
     const isContactRoot = section === 'contact' && path.length === 1;
     const isTestimonialItem = section === 'testimonials' && path[1] === 'items' && typeof path[2] === 'number';
+    const isInterventionCard = section === 'intervention' && path[1] === 'cards' && typeof path[2] === 'number';
     const fields = Object.entries(value).filter(([key]) => !isTestimonialItem || key !== 'id');
     return <div className="grid gap-4 md:grid-cols-2">{fields.map(([key, child]) => {
       let layout = typeof child === 'object' ? 'md:col-span-2' : '';
@@ -87,6 +94,7 @@ function ContentEditor({ value, path, onChange, supabase, section, notify, ensur
         if (key === 'name') layout = 'md:col-span-2 md:order-3';
         if (key === 'rating') layout = 'md:col-span-2 md:order-4';
       }
+      if (isInterventionCard) layout = 'md:col-span-2';
       return (
       <div key={key} className={layout}>
         <label className="mb-2 block text-sm font-medium">{key === 'items' ? (section === 'products' ? 'Produits' : section === 'testimonials' ? 'Témoignages' : 'Éléments') : isTestimonialItem && key === 'name' ? 'Nom du client' : labelFor(key)}</label>
@@ -98,7 +106,9 @@ function ContentEditor({ value, path, onChange, supabase, section, notify, ensur
   const imageKey = typeof path[path.length - 1] === 'string' ? path[path.length - 1].toLowerCase() : '';
   const isImage = imageKey.includes('image') || imageKey.includes('logo');
   const isTestimonialRating = section === 'testimonials' && imageKey === 'rating';
-  const isLongText = (section === 'testimonials' && imageKey === 'quote') || (typeof value === 'string' && (value.length > 100 || value.includes('\n')));
+  const isLongText = (section === 'testimonials' && imageKey === 'quote') ||
+    (section === 'intervention' && (['description', 'details'].includes(imageKey) || (path[1] === 'cards' && path[3] === 'paragraphs' && typeof path[4] === 'number'))) ||
+    (typeof value === 'string' && (value.length > 100 || value.includes('\n')));
 
   async function upload(event) {
     const file = event.target.files?.[0];
