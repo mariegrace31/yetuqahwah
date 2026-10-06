@@ -3,6 +3,7 @@ import { FaFacebook, FaTiktok } from 'react-icons/fa';
 import { FaInstagram } from 'react-icons/fa6';
 
 export default function Footer({ content }) {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="bg-yq_choc px-5 pt-14 pb-7 lg:px-44 lg:pt-16">
       <div className="flex flex-col justify-between md:flex-row">
@@ -31,7 +32,7 @@ export default function Footer({ content }) {
       </div>
       <hr className="mt-12" />
       <div className="mt-7 flex flex-col justify-between gap-4 text-center md:flex-row md:text-left">
-        <p className="uppercase text-yq_white1 text-[11px] md:text-[13px] lg:text-[14px]">© 2025 Yetu Qahwah. all rights reserved.</p>
+        <p className="uppercase text-yq_white1 text-[11px] md:text-[13px] lg:text-[14px]">© {currentYear} Yetu Qahwah. all rights reserved.</p>
         <p className="uppercase text-yq_white1 text-[11px] md:text-[13px] lg:text-[14px]">coffee lovers</p>
       </div>
     </footer>
