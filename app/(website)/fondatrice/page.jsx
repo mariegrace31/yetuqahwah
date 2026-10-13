@@ -9,8 +9,8 @@ export default async function FounderPage() {
   return (
     <main className="pt-24 lg:pt-44">
       <h1 className="mt-6 text-center font-montserrat text-yq_choc text-[14px] font-bold uppercase md:text-[15px] lg:mt-0 lg:text-[18px]">{founder.title}</h1>
-      <div className="mt-2 grid gap-5 px-5 lg:mt-10 lg:grid-cols-2 lg:gap-12 lg:px-14">
-        <Image src={founder.image} width={800} height={800} alt={founder.name} unoptimized className="h-[35vh] w-full object-cover lg:h-[75vh]" />
+      <div className="mt-2 grid items-center gap-5 px-5 lg:mt-10 lg:grid-cols-2 lg:gap-12 lg:px-14">
+        <Image src={founder.image} width={800} height={800} alt={founder.name} unoptimized className="mx-auto h-[30vh] w-[90%] object-cover lg:h-[58vh] lg:w-[90%]" />
         <div className="flex flex-col gap-3 lg:gap-4">
           <h2 className="mt-4 font-extralight uppercase text-yq_main text-[12px] lg:mt-0 lg:text-[13px]">{founder.name}</h2>
           {founder.biography.map((paragraph, index) => <p key={index} className="font-light text-yq_black text-[12px] md:text-[14px] lg:text-[16px]">{paragraph}</p>)}

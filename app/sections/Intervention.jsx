@@ -10,6 +10,7 @@ function galleryImages(card) {
 }
 
 export default function Intervention({ content }) {
+  const cards = (content.cards || []).filter((card) => card.description !== 'Lorem Ipsum quando porque el fruto, el celebro di coffee');
   const [selected, setSelected] = useState(null);
   const [activeImage, setActiveImage] = useState('');
   const [activeGalleryIndex, setActiveGalleryIndex] = useState(-1);
@@ -54,7 +55,9 @@ export default function Intervention({ content }) {
           <p className="w-[90%] text-[16px] text-yq_black md:text-[19px] lg:w-[60%] lg:text-[22px]">{content.description}</p>
         </header>
         <div className="grid grid-cols-1 gap-7 px-5 pb-20 pt-14 md:grid-cols-2 lg:grid-cols-3 lg:gap-10 lg:px-14">
-          {content.cards.map((card, index) => (
+          {cards.length === 0 ? (
+            <p className="col-span-full py-8 text-center text-sm text-yq_black/60 md:text-base">Aucune intervention pour le moment.</p>
+          ) : cards.map((card, index) => (
             <article
               key={card.id || index}
               role="button"

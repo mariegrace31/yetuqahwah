@@ -103,7 +103,7 @@ export const defaultSiteContent = {
   intervention: {
     title: 'intervention',
     description: 'Initiative sociale et environnementale visant à accompagner les femmes vulnérables dans leur autonomisation en devenant productrices de café durable.',
-    cards: Array.from({ length: 6 }, (_, index) => ({ id: `initiative-${index + 1}`, title: `Intervention ${index + 1}`, image: '/images/grayimage.jpeg', description: 'Lorem Ipsum quando porque el fruto, el celebro di coffee', paragraphs: [...defaultInterventionParagraphs], gallery: Array.from({ length: 3 }, () => ({ image: '/images/grayimage.jpeg' })) })),
+    cards: [],
   },
   branding: { logo: '/images/moblogochoc.svg', logoAlt: 'Yetu Qahwah' },
 };
