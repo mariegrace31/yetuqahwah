@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { PORTAL_SESSION_STARTED_AT_KEY } from '@/lib/supabase/portal-session';
+import PasswordField from '@/app/components/PasswordField';
 
 export default function LoginPage() {
   const [error, setError] = useState('');
@@ -38,7 +39,7 @@ export default function LoginPage() {
       {notice && <p role="alert" className="mt-4 rounded bg-[#f7f4ef] p-3 text-sm text-yq_choc">{notice}</p>}
       <form onSubmit={submit} className="mt-7 flex flex-col gap-4">
         <label className="block text-sm">Adresse e-mail<input required name="email" type="email" autoComplete="email" className="mt-1 w-full rounded border border-yq_lightchoc px-3 py-3 transition focus:outline-none focus:shadow-[0_0_0_4px_rgba(60,36,21,0.12)]" /></label>
-        <label className="block text-sm">Mot de passe<input required name="password" type="password" autoComplete="current-password" className="mt-1 w-full rounded border border-yq_lightchoc px-3 py-3 transition focus:outline-none focus:shadow-[0_0_0_4px_rgba(60,36,21,0.12)]" /></label>
+        <PasswordField label="Mot de passe" required autoComplete="current-password" />
         {error && <p role="alert" className="text-sm text-red-700">{error}</p>}
         <button disabled={busy} className="rounded bg-yq_main px-4 py-3 font-medium text-white transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-yq_choc focus:ring-offset-2 disabled:opacity-60">{busy ? 'Connexion…' : 'Se connecter'}</button>
       </form>
