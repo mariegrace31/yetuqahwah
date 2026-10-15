@@ -1,15 +1,32 @@
 'use client';
 
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 function Contact({ content }) {
-  function handleSubmit(event) {
+  const [status, setStatus] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+
+  async function handleSubmit(event) {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const subject = `Message du site Yetu Qahwah — ${form.get('name')}`;
-    const body = `Nom : ${form.get('name')}\nAdresse e-mail : ${form.get('email')}\n\nMessage :\n${form.get('message')}`;
-    window.location.href = `mailto:yetuqahwah2020@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSubmitting(true);
+    setStatus('');
+    const form = event.currentTarget;
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      });
+      if (!response.ok) throw new Error('Échec de l’envoi');
+      form.reset();
+      setStatus('Message envoyé. Merci de nous avoir écrit !');
+    } catch {
+      setStatus('Le message n’a pas pu être envoyé. Réessaie plus tard.');
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -54,8 +71,9 @@ function Contact({ content }) {
               type="submit"
               className="bg-yq_main font-medium text-[12px] md:text-[14px] lg:text-[16px] text-yq_white1 py-3 px-6 w-full hover:opacity-90 transition"
             >
-              Envoyer
+              {submitting ? 'Envoi…' : 'Envoyer'}
             </button>
+            {status && <p role="status" aria-live="polite" className="text-center text-sm text-yq_choc">{status}</p>}
           </form>
         </div>
 
