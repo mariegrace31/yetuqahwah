@@ -6,6 +6,7 @@ import { CiStar } from 'react-icons/ci';
 import { FaStar } from 'react-icons/fa';
 import { ImArrowLeft2, ImArrowRight2 } from 'react-icons/im';
 import { createClient } from '@/lib/supabase/client';
+import SuccessModal from '@/app/components/SuccessModal';
 
 function Stars({ rating }) {
   return <div className="flex justify-center gap-1" aria-label={`Note : ${rating} sur 5`}>
@@ -18,12 +19,10 @@ function Stars({ rating }) {
 function TestimonialForm({ onSubmitted }) {
   const [rating, setRating] = useState(0);
   const [submitting, setSubmitting] = useState(false);
-  const [message, setMessage] = useState('');
   const [error, setError] = useState('');
 
   async function submit(event) {
     event.preventDefault();
-    setMessage('');
     setError('');
     if (!rating) {
       setError('Choisis une note entre 1 et 5 étoiles.');
@@ -41,7 +40,6 @@ function TestimonialForm({ onSubmitted }) {
       });
       if (submitError) setError('Impossible d’envoyer ton témoignage pour le moment. Réessaie plus tard.');
       else {
-        setMessage('Merci ! Ton témoignage sera publié après validation.');
         formElement.reset();
         setRating(0);
         onSubmitted();
@@ -74,7 +72,6 @@ function TestimonialForm({ onSubmitted }) {
         <label className="grid gap-1 text-sm text-yq_black">Votre témoignage
           <textarea name="quote" required minLength={3} maxLength={1200} rows={4} className="w-full resize-y rounded border border-yq_lightchoc px-3 py-2 focus:outline-none focus:shadow-[0_0_0_4px_rgba(60,36,21,0.12)]" />
         </label>
-        {message && <p role="status" className="text-sm text-green-800">{message}</p>}
         {error && <p role="alert" className="text-sm text-red-700">{error}</p>}
         <button type="submit" disabled={submitting} className="w-fit rounded bg-yq_main px-4 py-2 text-sm font-medium text-white transition hover:opacity-90 disabled:opacity-60">
           {submitting ? 'Envoi…' : 'Envoyer'}
@@ -98,6 +95,7 @@ export default function Temoignage({ content }) {
 
   return (
     <section id="temoignages" className="bg-yq_white1 px-5 py-12 lg:px-0 lg:py-20">
+      <SuccessModal message={submissionNotice} onClose={() => setSubmissionNotice('')} />
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-3 text-center">
         <h2 className="mt-2 font-montserrat text-sm font-bold uppercase text-yq_choc md:text-base lg:mt-0 lg:text-lg">{content.title}</h2>
         <p className="text-base text-yq_black md:text-lg lg:text-[22px]">{content.description}</p>
@@ -106,7 +104,7 @@ export default function Temoignage({ content }) {
       {showForm ? <div className="mx-auto mt-8 w-full max-w-2xl rounded-lg bg-yq_beige p-5 sm:p-8">
         <TestimonialForm onSubmitted={() => {
           setShowForm(false);
-          setSubmissionNotice('Merci pour ton témoignage ! Il sera visible après validation.');
+          setSubmissionNotice('Ton témoignage a été ajouté avec succès et sera visible après validation.');
         }} />
         <button type="button" onClick={() => setShowForm(false)} className="mt-4 text-sm text-yq_main underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yq_choc">Retour aux témoignages</button>
       </div> : <>
@@ -140,7 +138,6 @@ export default function Temoignage({ content }) {
           </div>
         </div>
         <div className="flex flex-col items-center gap-3 lg:col-start-2">
-          {submissionNotice && <p role="status" className="text-center text-sm text-green-800">{submissionNotice}</p>}
           <button type="button" onClick={() => { setSubmissionNotice(''); setShowForm(true); }} className="rounded border border-yq_main px-4 py-2 text-sm font-medium text-yq_main transition hover:bg-yq_main hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yq_choc">Laisser un commentaire</button>
         </div>
       </div>

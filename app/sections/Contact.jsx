@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
+import SuccessModal from '@/app/components/SuccessModal';
 
 function Contact({ content }) {
   const [status, setStatus] = useState('');
@@ -30,8 +31,8 @@ function Contact({ content }) {
   }
 
   return (
-    <section id="contact" className="mb-5 bg-yq_choc pt-14 pb-24 lg:mb-8 lg:pt-24 lg:pb-32 flex justify-center"
-    >
+    <section id="contact" className="mb-5 bg-yq_choc pt-14 pb-24 lg:mb-8 lg:pt-24 lg:pb-32 flex justify-center">
+      <SuccessModal message={status === 'Message envoyé. Merci de nous avoir écrit !' ? status : ''} onClose={() => setStatus('')} />
       <div className="w-[100%] lg:w-[85%] flex justify-center items-center relative">
 
         <div className="w-[90%] md:w-[50%] lg:w-[40%] bg-yq_white1 p-5 md:p-7 lg:p-12 z-10 shadow-xl relative">
@@ -73,7 +74,7 @@ function Contact({ content }) {
             >
               {submitting ? 'Envoi…' : 'Envoyer'}
             </button>
-            {status && <p role="status" aria-live="polite" className="text-center text-sm text-yq_choc">{status}</p>}
+            {status && status !== 'Message envoyé. Merci de nous avoir écrit !' && <p role="alert" className="text-center text-sm text-red-700">{status}</p>}
           </form>
         </div>
 
